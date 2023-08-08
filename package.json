@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install-server": "cd miryoku-server && npm install",
-    "start-server": "cd miryoku-server && node app.js",
+    "start-server": "cd miryoku-server/src && node server.js",
     "install-client": "cd miryoku-front-end && npm install",
     "build-client": "cd miryoku-front-end && npm run build",
     "start-client": "cd miryoku-front-end && npm run start"
