@@ -29,7 +29,11 @@ app.use(express.json())
 // middleware for cookies
 app.use(cookieParser())
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')))
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', '..index.html'));
+});
 
 // routes
 app.use('/register', require('./routes/register'))
@@ -47,10 +51,6 @@ app.use('/feedback', require('./routes/api/feedbacks'))
 app.use('/comment', require('./routes/api/comments'))
 app.use('/reply', require('./routes/api/replies'))
 app.use('/flag', require('./routes/api/flags'))
-
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 // app.all('*', (req, res) => {
 //     res.status(404)
