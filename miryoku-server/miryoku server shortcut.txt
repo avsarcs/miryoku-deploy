@@ -1,0 +1,4 @@
+/Users/avsar/mongodb/bin/mongod.exe --dbpath="/Users/avsar/mongodb-data"
+
+boi@boi.com
+Password1

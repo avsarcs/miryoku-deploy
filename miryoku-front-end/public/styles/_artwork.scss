@@ -1,0 +1,105 @@
+@import "./variables";
+
+.all-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 90vh;
+
+    overflow-wrap: break-word;
+
+    background-color: #f8f2e4;
+    opacity: 1;
+    // background-image:  linear-gradient(30deg, #f1efeb 12%, transparent 12.5%, transparent 87%, #f1efeb 87.5%, #f1efeb), linear-gradient(150deg, #f1efeb 12%, transparent 12.5%, transparent 87%, #f1efeb 87.5%, #f1efeb), linear-gradient(30deg, #f1efeb 12%, transparent 12.5%, transparent 87%, #f1efeb 87.5%, #f1efeb), linear-gradient(150deg, #f1efeb 12%, transparent 12.5%, transparent 87%, #f1efeb 87.5%, #f1efeb), linear-gradient(60deg, #f1efeb77 25%, transparent 25.5%, transparent 75%, #f1efeb77 75%, #f1efeb77), linear-gradient(60deg, #f1efeb77 25%, transparent 25.5%, transparent 75%, #f1efeb77 75%, #f1efeb77);
+    // background-size: 80px 140px;
+    // background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+
+}
+
+.tabs-wrapper {
+    margin-bottom: 50px;
+}
+
+.artwork-container {
+    opacity: 1;
+    width: 80vw;
+    height: auto;
+}
+
+.artwork-title {
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+    font-size: 2em;
+    display: block;
+}
+
+.artwork-info {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.long-description {
+    margin: 1rem 0em;
+    display: inline-block;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    position: relative;
+    max-width: 75%;
+    
+}
+
+.long-description::after {
+    content: "";
+    height: 2px;
+    background-color: black;
+    display: block;
+    position: absolute;
+    bottom: -1.3em;
+    width: 10vw;
+    left: 0;
+}
+
+.artwork-tags {
+    font-family: "Abel", sans-serif;
+}
+
+.description-separator {
+    width: 50vw;
+    left: 0;
+}
+
+.artwork-body {
+    margin-bottom: 2em;
+    position: relative;
+    overflow-wrap: break-word;
+}
+
+.artwork-body::after {
+    content: "";
+    height: 2px;
+    background-color: black;
+    display: block;
+    position: absolute;
+    bottom: -1.3em;
+    width: 10vw;
+    left: 0;
+}
+
+.fa-star, .fa-star-o {
+    color: orange;
+    cursor: pointer;
+    margin-right: 0.5em;
+}
+
+.checked {
+    color: orange;
+}
+
+.unchecked {
+    color: black;
+}
+
+.login-warning {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.85em;
+}

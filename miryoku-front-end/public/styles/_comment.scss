@@ -1,0 +1,158 @@
+@import "./variables";
+
+.comment-submit-container, .reply-submit-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-button, .reply-button, .like-button, .feedback-button {
+    margin-top: 1em;
+    margin-right: 1em;
+    background: black;
+    color: $background-color-2;
+    border-style: solid;
+    border-color: black;
+    padding: 0.2em 0.3em;
+    border-radius: 3%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.comment-bar, .reply-bar, .feedback-bar {
+    display: block;
+    resize: none;
+    border-width: 0 0 2px 0;
+    font-size: 0.9em;
+    background: none;
+    border-style: solid;
+    width: 60%;
+    height: auto;
+    max-height: 15em;
+    overflow: auto;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: border-color 1s ease 0s;
+}
+
+.comment-like-container {
+    margin-top: 0.3em;
+}
+
+.like-button {
+    margin-left: 1em;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    color: white;
+    background-color: black;
+}
+
+.reply-like-container {
+    margin-top: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.reply-like-button {
+    background: none;
+    border-style: solid;
+    border-color: gray;
+    border-width: 0 0 2px 0;
+    color: black;
+    margin-left: 1em;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    height: min-content;
+    font-size: 0.8em;
+}
+
+.reply-bar {
+    margin-top: 1em;
+}
+
+.comment-bar:focus, .reply-bar:focus, .feedback-bar:focus {
+    outline: none;
+}
+
+.comment-box, .feedback-box {
+    // background-color: white;
+    // border: 2px solid black;
+    width:40vw;
+    min-width: 300px;
+    padding: 0.3em 1em;
+    padding-bottom: 0.5em;
+    margin: 1em 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    border-style: solid;
+    border-color: black;
+    border-width: 0.12em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+
+
+}
+
+@media screen and (max-width: 1390px) {
+    .comment-box {
+        width: 570px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .comment-box {
+        width: 70vw;
+    }
+}
+
+.commenter-details {
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+.commenter-detail {
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+.toggle-replies-button {
+    padding: 4px 12px;
+    border-radius: 8%;
+    border-style: solid;
+    
+    cursor: pointer;
+    margin-top: 0.6em;
+    background: none;
+    color: inherit;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.toggle-replies-button:hover {
+    font-weight: bold;
+    padding: 4px 7.5px;
+}
+
+.reply-container {
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 1em;
+    padding-top: 0.3em;
+    padding-left: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.reply-details {
+    display: flex;
+    color: rgb(61, 60, 60);
+}
+
+.reply-detail {
+    margin-right:1em;
+}

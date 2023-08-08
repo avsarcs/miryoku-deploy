@@ -1,0 +1,337 @@
+@import "./variables";
+
+@import url("https://fonts.googleapis.com/css?family=Sofia+Sans");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Unbounded");
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Barlow");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+@import url("https://fonts.googleapis.com/css?family=Cabin");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+@import url("https://fonts.googleapis.com/css?family=Droid+Sans");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates");
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans");
+@import url("https://fonts.googleapis.com/css?family=Cairo");
+@import url("https://fonts.googleapis.com/css?family=Bitter");
+@import url("https://fonts.googleapis.com/css?family=Muli");
+@import url("https://fonts.googleapis.com/css?family=Exo");
+@import url("https://fonts.googleapis.com/css?family=Rubik");
+@import url("https://fonts.googleapis.com/css?family=Oxygen");
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text");
+@import url("https://fonts.googleapis.com/css?family=Abel");
+@import url("https://fonts.googleapis.com/css?family=Quattrocento+Sans");
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+@import url("https://fonts.googleapis.com/css?family=Archivo");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
+@import url("https://fonts.googleapis.com/css?family=Cabin+Condensed");
+@import url("https://fonts.googleapis.com/css?family=Karla");
+@import url("https://fonts.googleapis.com/css?family=Archivo+Black");
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono");
+@import url("https://fonts.googleapis.com/css?family=Signika");
+@import url("https://fonts.googleapis.com/css?family=Asap");
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+@import url("https://fonts.googleapis.com/css?family=Anton");
+@import url("https://fonts.googleapis.com/css?family=Catamaran");
+@import url("https://fonts.googleapis.com/css?family=Cormorant");
+
+@import "./auth";
+@import "./navbar";
+@import "./home";
+@import "./feed";
+@import "./profile";
+@import "./artwork";
+@import "./tabs";
+@import "./comment";
+@import "./feedback";
+@import "./overlay";
+@import "./create";
+@import "./page_buttons";
+@import "./read-more";
+
+body {
+    margin: 0;
+    background-color: $background-color;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+img {
+    object-fit: cover;
+}
+
+// BUTTONS
+
+.basic-button {
+    all: unset;
+    cursor: pointer;
+    background-color: $background-color;
+
+    color: black;
+    font-family: "Oswald", "Abel", Arial, Helvetica, sans-serif;
+
+    padding: 0.2em 1em;
+    padding-bottom: 0.3em;
+
+    position: relative;
+}
+
+.basic-button-text:after {
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    display: block;
+    margin-top: 0.05em;
+    height: 2px;
+    position: absolute;
+    left: 10%;
+    background: #000000;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.basic-button:hover {
+
+    .basic-button-text:after {
+        width: 80%;
+    }
+
+}
+
+.everywhere-button {
+    all: unset;
+    cursor: pointer;
+    background-color: $background-color;
+
+    color: black;
+    font-family: "Oswald", "Abel", Arial, Helvetica, sans-serif;
+
+    padding: 0.2em 1em;
+    padding-bottom: 0.3em;
+
+    position: relative;
+}
+
+.everywhere-button:hover {
+
+    background-color: rgb(219, 217, 217);
+
+}
+
+.bordered-everywhere-button {
+    all: unset;
+    cursor: pointer;
+    background-color: $background-color;
+
+    color: black;
+    font-family: "Oswald", "Abel", Arial, Helvetica, sans-serif;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    padding: 0.2em 1em;
+    padding-bottom: 0.3em;
+
+    position: relative;
+}
+
+.fade-button {
+    border-color: rgb(64, 64, 64);
+    color: rgb(64, 64, 64);
+}
+
+.bordered-everywhere-button:hover {
+
+    background-color: rgb(219, 217, 217);
+
+}
+
+.regular-button {
+    all: unset;
+    cursor: pointer;
+    background-color: $background-color;
+
+    color: black;
+    font-family: "Oswald", "Abel", Arial, Helvetica, sans-serif;
+
+    padding: 0.2em 1em;
+    padding-bottom: 0.3em;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+.regular-button-disabled {
+    all: unset;
+    cursor: not-allowed;
+    background-color: $background-color;
+
+    color: rgb(102, 102, 102);
+    font-family: "Oswald", "Abel", Arial, Helvetica, sans-serif;
+
+    padding: 0.2em 1em;
+    padding-bottom: 0.3em;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+.regular-button:hover {
+    color: white;
+    background-color: black;
+}
+
+.secondary-button {
+    background: black;
+    color: $background-color-2;
+    border-style: solid;
+    border-color: black;
+    padding: 0.2em 0.3em;
+    border-radius: 3%;
+}
+
+// END OF BUTTONS
+
+// VARIOUS INPUT ITEMS
+.nice-checkbox {
+    height: 20px;
+    width: 20px;
+    margin: 0 5px 2px 2px;
+}
+// END OF VARIOUS INPUT ITEMS
+
+// DIV TEMPLATES
+
+.sleek-text {
+    font-family: "Barlow", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.faded-text {
+    color: rgb(95, 95, 95);
+}
+
+.spaced-well {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fancy-title {
+    font-family: "Poppins", "Amatic SC", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 4em;
+}
+
+.slightly-larger {
+    font-size: 1.3em;
+}
+
+.playful {
+    font-family: "Amatic SC", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.flex-row {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.margin-left {
+    margin-left: 1em;
+}
+
+.margin-right {
+    margin-right: 1em;
+}
+
+.margin-bottom {
+    margin-bottom: 1em;
+}
+
+.margin-top {
+    margin-top: 1em;
+}
+
+.border-it-column {
+    border-color: black;
+    border-style: solid;
+    border-top: 2px;
+    border-bottom: 2px;
+    padding: 2em;
+    text-align: center;
+  }
+
+@media screen and (max-width: 1200px) {
+    .spaced-well {
+        justify-content: flex-start;
+    }
+}
+
+// END OF DIV TEMPLATES
+
+// MEDIA QUERY FOR MOBILE COMPATIBILITY
+
+@media screen and (max-width: 900px) {
+
+    // TODO: Instead of making the Miryoku logo disappear, make the navigation bar a toggle menu
+    .navbar-title {
+        color: transparent;
+    }
+
+    .jump-a-line {
+        display: block;
+    }
+
+    .story-one {
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+        }
+    }
+
+}
+
+@media screen and (max-width: 780px) {
+    
+    .buttons-next-to-search-bar {
+        margin-top: 2rem;
+    }
+
+    .search-components {
+        width: min-content;
+        justify-content: center;
+    }
+
+    .submit {
+        margin-left: 0rem;
+    }
+
+    .search-bar {
+        width: 60vw;
+    }
+
+}
+
+// END OF MEDIA QUERY

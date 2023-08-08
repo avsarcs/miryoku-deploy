@@ -1,0 +1,72 @@
+handleLogin'de
+username yani sende email var mı yok mu ona bak
+sonra bcrypt.compare kullanarak şifreyi kontrol et.
+match varda user'ı gönder,
+VE JWT TOKENLARI DA BURADAN GÖNDERECEKSİN
+match yoksa 401 status gönder
+
+Access token -> short time
+sent as JSON
+client stores in memory
+do NOT store in local storage or cookie
+
+Issued at authorization
+Client uses for API Access until expires
+Verified with middleware
+New token issued at Refresh request (what request?)
+
+Refresh token -> long time
+sent as httpOnly cookie
+Not accessible via Javascript
+Must have expiry at some point
+
+Issued at Authorization
+Client uses to request new Access T.
+Verified with endpoint and database (?)
+Must be allowed to expire or logout
+
+LOGIN REST API
+Bir tane Access Token oluşturuyorsun, kısa ömürlü.
+Bir tane Refresh Token oluşturuyorsun, uzun ömürlü.
+SADECE Refresh Token'ı user'a ekleyip veri tabanında saklayacaksın.
+Response olarak res.json({accessToken})'ı yollayacaksın.
+res.cookie('jwt', refreshToken, {httpOnly: true, maxAge: 24 * 60 * 60 * 1000})
+Refresh token'ı da yukarıdaki gibi yollayacaksın.
+
+VERIFYJWT MIDDLEWARE
+request header "authorization"dan gelen ACCESS TOKEN'I alacaksın.
+null check vs var tab2
+jwt.verify ile token, ACCESS_TOKEN_SECRET, (err, decoded) callback function
+jwt.verify ile token'a yüklenmiş user id'yi decode etmiştin.
+şimdi req.user'ı veri tabanından findById ile bulduğun kullanıcı verisine eşitleyip next()
+fonksiyonunu çağırıyorsun
+
+REFRESHTOKENCONTROLLER.JS
+(server.js'e cookie-parser yükle, sonra aşağıdaki satırı ekle:
+app.use(cookieParser()))
+Tüm authController'ı kopyala yapıştır.
+handleLogin'i handleRefreshToken'a değiştir.
+const cookies = req.cookies, sonra null check yoksa res.sendStatus(401)
+cookies.jwt ile eşleşen refreshToken'ı olan user var mı yok mu ona bakacaksın, varsa bir kenara al, yoksa hata ver
+refreshToken'ı jwt.verify ile aç, (err, decoded) callback function'da null check err check yap,
+sonra yeniden user id'sini koyup bir jwt.sign ile accessToken yarat (expiresIn: 15 dk fl)
+handleRefreshToken'ı exportla.
+
+REFRESH.JS (ROUTE) hallet orayı da. Sonra server.js'e app.use ile koy
+
+LOGOUTCONTROLLER.JS
+refreshTokenController.js'i kopyala yapıştır.
+handleLogout
+On client, also delete the accessToken. (comment)
+cookies = req.cookies
+cookies.jwt olarak gönderilen refreshToken'a sahip kullanıcı varsa bir kenara al, yoksa jwt cookie'sini sil.
+res.clearCookie
+
+öyle bir kullanıcı varsa refreshToken'ı database'den sil (boş stringe eşitle).
+zaten accessToken'ı da frontend'de silmiştin.
+
+production'da cookie ile ilgili satırlarda httpOnly'nin yanına bir de secure: true ekliyorsun ki sadece https
+kabul etsin
+
+---
+User.create()

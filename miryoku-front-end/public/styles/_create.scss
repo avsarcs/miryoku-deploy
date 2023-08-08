@@ -1,0 +1,84 @@
+@mixin changeableText {
+    border-width: 0 0 2px 0;
+    font-size: 0.9em;
+    resize: horizontal;
+    background: none;
+    border-style: solid;
+    min-width: 10%;
+    width: auto;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: border-color 1s ease 0s;
+}
+
+@mixin changeableTextFocus {
+    outline: none;
+    border-color: black;
+}
+
+.changeable-text-long {
+    @include changeableText();
+}
+
+.changeable-text-long:focus {
+    @include changeableTextFocus();
+}
+
+.create-description-textbox {
+    @include changeableText();
+    margin-top: 0.5em;
+    padding: 1em;
+    overflow-y: scroll;
+    resize: none;
+    width: 20%;
+    min-width: 15em;
+    min-height: 4em;
+    background-color: $background-color;
+    border-radius: 5px;
+}
+
+.create-description-textbox:focus {
+    @include changeableTextFocus();
+}
+
+.create-long-description-textbox {
+    @include changeableText();
+    margin-top: 0.5em;
+    padding: 1em;
+    overflow-y: scroll;
+    resize: none;
+    width: 40%;
+    min-width: 15em;
+    min-height: 4em;
+    background-color: $background-color;
+    border-radius: 5px;
+}
+
+.create-long-description-textbox:focus {
+    @include changeableTextFocus();
+}
+
+.big-textbox {
+    @include changeableText();
+    border: 2px solid black;
+    margin-top: 0.5em;
+    padding: 2em;
+    overflow-y: scroll;
+    resize: none;
+    width: 40%;
+    min-width: 15em;
+    min-height: 4em;
+    background-color: $background-color;
+    border-radius: 5px;
+}
+
+.big-textbox:focus {
+    @include changeableTextFocus();
+}
+
+.select-menu {
+    max-width: 80vw;
+}

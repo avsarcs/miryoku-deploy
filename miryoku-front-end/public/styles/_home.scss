@@ -1,0 +1,218 @@
+.stories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// HOME > STORY ONE
+
+.story-one, .story-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: "Unbounded", sans-serif;
+    
+    h1 {
+        font-size: 5rem;
+        margin-top: 12rem;
+    }
+
+    p {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+        text-align: center;
+    }
+
+    // This styles the 'beta' subscript
+    span {
+        font-size:0.8rem;
+        font-weight: 100;
+    }
+
+}
+
+.story-two {
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    color: white;
+}
+
+@media screen and (max-height: 900px) {
+    .story-two {
+        padding-bottom: 200vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .story-two {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .story-one {
+        padding-top: -10vh;
+        padding-bottom: 10vh;
+    }
+
+    .story-two {
+        padding-bottom: 40vh;
+    }
+}
+
+.jump-a-line {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+
+
+    margin-top: 2rem;
+    width: 15%;
+    height: 20%;
+
+    button {
+        border: 2px solid black;
+        border-radius: 0.2rem;
+        cursor: pointer;
+
+        min-width: 6rem;
+        margin: 0rem 1rem;
+        height: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.3rem 1rem;
+
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+
+    }
+
+    button:hover {
+        color: white;
+        background-color: black;
+    }
+
+}
+
+// Below for animated background
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #f9e0c9;
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(212, 151, 121, 0.2);
+    animation: animate 36s linear infinite;
+}
+
+
+
+
+.background li:nth-child(0) {
+    left: 64%;
+    width: 126px;
+    height: 126px;
+    bottom: 0px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 72%;
+    width: 183px;
+    height: 183px;
+    bottom: 20px;
+    animation-delay: 0s;
+}
+.background li:nth-child(2) {
+    left: 7%;
+    width: 132px;
+    height: 132px;
+    bottom: 180px;
+    animation-delay: 0s;
+}
+.background li:nth-child(3) {
+    left: 46%;
+    width: 183px;
+    height: 183px;
+    bottom: 500px;
+    animation-delay: 0s;
+}
+.background li:nth-child(4) {
+    left: 80%;
+    width: 149px;
+    height: 149px;
+    bottom: -149px;
+    animation-delay: 4s;
+}
+.background li:nth-child(5) {
+    left: 56%;
+    width: 153px;
+    height: 153px;
+    bottom: -153px;
+    animation-delay: 18s;
+}
+.background li:nth-child(6) {
+    left: 31%;
+    width: 141px;
+    height: 141px;
+    bottom: -141px;
+    animation-delay: 16s;
+}
+.background li:nth-child(7) {
+    left: 66%;
+    width: 185px;
+    height: 185px;
+    bottom: -185px;
+    animation-delay: 24s;
+}
+.background li:nth-child(8) {
+    left: 55%;
+    width: 111px;
+    height: 111px;
+    bottom: -111px;
+    animation-delay: 16s;
+}
+.background li:nth-child(9) {
+    left: 8%;
+    width: 169px;
+    height: 169px;
+    bottom: -169px;
+    animation-delay: 9s;
+}
+
+
+
+
+// END OF HOME > STORY ONE

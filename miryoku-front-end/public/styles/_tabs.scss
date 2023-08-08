@@ -1,0 +1,259 @@
+@import "./variables";
+
+@mixin allTabListItems {
+    list-style: none;
+
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 0.4em 1.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// START OF SCROLLABLE HORIZONTAL MIXINS
+
+@mixin tabsScrollableHorizontal {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin tabListScrollableHorizontal {
+    display: flex;
+    overflow: scroll;
+    overflow-wrap: normal;
+    padding: 0;
+}
+
+@mixin tabListItemScrollableHorizontal {
+
+    @include allTabListItems();
+
+    
+    overflow-wrap: normal;
+    min-width: max-content;
+
+    margin: 0.2em 0.3em;
+    font-family: "Abel", Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+@mixin tabListActiveScrollableHorizontal {
+
+    font-weight: bold;
+    margin: 0.3em 0.3em;
+
+    
+    background-color: rgb(234, 232, 230);
+
+}
+
+// END OF SCROLLABLE HORIZONTAL MIXINS
+
+.tab-list {
+    display: flex;
+    padding: 0;
+}
+
+.tab-list-item {
+    @include allTabListItems();
+
+    border-radius: 5%;
+
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 2px 0;
+    
+    margin: 0.2em 0.3em;
+    font-family: "Abel", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tab-list-active {
+    font-weight: bold;
+    margin: 0.3em 0.3em;
+    border-width: 0 0 4px 0;
+}
+
+// START OF DARK-BG
+
+.tab-list-dark-bg {
+    display: flex;
+    justify-content: center;
+}
+
+.tab-list-item-dark-bg {
+    @include allTabListItems();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid black;
+    border-radius: 5%;
+
+    font-family: "Abel";
+    background-color: white;
+    margin: 0.3em 0.3em;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-family: "Abel";
+}
+
+.tab-list-active-dark-bg {
+    font-weight: bold;
+    margin: 0.3em 0.3em;
+    border-width: 4px;
+}
+
+// END OF DARK-BG
+
+// START OF VERTICAL
+
+@mixin tabsVertical {
+    display: flex;
+    min-width: 50vw;
+}
+
+@mixin tabContentVertical {
+    border: 2px solid black;
+    border-width: 0 0 0 2px;
+    padding: 0 2em 1em 2em;
+    
+    font-family: "Barlow", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@mixin tabListVertical {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    overflow-wrap: break-word;
+}
+
+@mixin tabListItemVertical {
+    @include allTabListItems();
+
+    font-family: "Abel";
+    border-radius: 0;
+
+    min-width: 10em;
+
+    border-width: 0 0 2px 0;
+    color: gray;
+}
+
+@mixin tabListActiveVertical {
+
+    font-weight: bold;
+    padding: 0 -2px 0 -2px;
+    border-width: 0 0 4px 0;
+    color: black;
+    background-color: rgb(234, 232, 230);
+
+}
+
+.tabs-vertical {
+     @include tabsVertical()
+}
+
+.tab-content-vertical {
+    @include tabContentVertical()
+}
+
+.tab-list-vertical {
+    @include tabListVertical()
+}
+
+.tab-list-item-vertical {
+    @include tabListItemVertical()
+}
+
+.tab-list-active-vertical {
+    @include tabListActiveVertical()
+}
+
+.tabs-vertical {
+    @include tabsVertical()
+}
+
+.tab-content-verticalRadioBox {
+   padding: 0;
+}
+
+.tab-list-verticalRadioBox {
+   @include tabListVertical()
+}
+
+.tab-list-item-verticalRadioBox {
+   @include tabListItemVertical()
+}
+
+.tab-list-active-verticalRadioBox {
+   @include tabListActiveVertical()
+}
+
+// START OF SCROLLABLE HORIZONTAL
+
+.tabs-scrollableHorizontal {
+    all: unset;
+    @include tabsScrollableHorizontal();
+}
+
+.tab-list-scrollableHorizontal {
+    all: unset;
+    @include tabListScrollableHorizontal();
+}
+
+.tab-list-item-scrollableHorizontal {
+    all: unset;
+    @include tabListItemScrollableHorizontal();
+}
+
+.tab-list-active-scrollableHorizontal {
+    all: unset;
+    @include tabListItemScrollableHorizontal();
+    @include tabListActiveScrollableHorizontal(); 
+}
+
+.tab-content-scrollableHorizontal {
+    border-width: 2px 0 0 0;
+    padding: 1em 0.5em 1em 0.5em;
+}
+
+// END OF SCROLLABLE HORIZONTAL
+
+// If the screen is not wide enough to accommodate vertical tabs, they will convert to scrollable-horizontal
+@media screen and (max-width: 1200px) {
+
+    .tabs-vertical {
+        all: unset;
+        @include tabsScrollableHorizontal();
+    }
+    
+    .tab-list-vertical {
+        all: unset;
+        @include tabListScrollableHorizontal();
+        flex-direction: row-reverse;
+    }
+    
+    .tab-list-item-vertical {
+        all: unset;
+        @include tabListItemScrollableHorizontal();
+    }
+    
+    .tab-list-active-vertical {
+        all: unset;
+        @include tabListItemScrollableHorizontal();
+        @include tabListActiveScrollableHorizontal(); 
+    }
+
+    .tab-content-vertical {
+        border-width: 2px 0 0 0;
+        padding: 1em 0.5em 1em 0.5em;
+    }
+
+}
+
+
+// END OF VERTICAL
+

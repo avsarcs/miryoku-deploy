@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Abel");
+@import "./artwork-card";
+@import "./variables";
+
+// .cards-container is in _artwork-card.scss
+
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+
+
+    background-color: #FFEFD5;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.feed-body {
+    width: 78vw;
+    height: auto;
+    min-height: 70vh;
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(121, 16, 16);
+    border-top: 0px;
+    border-bottom: 0px;
+
+    background-color: #ffffff;
+opacity: 1;
+background-image: radial-gradient( ellipse farthest-corner at 40px 40px , #f1efeb, #f1efeb 50%, #ffffff 50%);
+background-size: 40px 40px;
+
+}
+
+.feed-create-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.feed-create-button {
+    margin-left: 1em;
+    border: 2px solid black;
+    background-color: #efefef;
+    border-radius: 15px;
+    font-family: "Oswald";
+    font-size: 2em;
+    padding: 0.25em 1em;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: auto;
+    transition: letter-spacing 0.2s ease-out 0s;
+}
+
+.feed-create-button:hover {
+    letter-spacing: 0.05em;
+}
+
+@media screen and (max-width: 720px) {
+    .feed-create-container {
+        flex-direction: column;
+    }
+
+    .feed-create-button {
+        margin-left: 0;
+        margin-top: 6vh;
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+    }
+}
+
+.desc-and-widget-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $background-color;
+
+    padding: 2rem 5rem;
+    width: 75vw;
+    border: 2px solid black;
+    border-top: 0px;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.desc-container {
+    max-width: 50%;
+
+    h1, h2 {
+        max-width: 85%;
+    }
+}
+
+.level-progress {
+    width: 40px;
+    background-color: orange;
+}
+
+// PROGRESS BAR
+
+.meter {
+    margin-top: 0.5rem;
+    box-sizing: content-box;
+    height: 0.6rem;
+
+    position: relative;
+    background: #555;
+    border-radius: 25px;
+    padding: 2px;
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .meter > span {
+    display: block;
+    height: 100%;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    background-color: rgb(43, 194, 83);
+
+    background-image: linear-gradient(
+      center bottom,
+      rgb(43, 194, 83) 37%,
+      rgb(84, 240, 84) 69%
+    );
+
+    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+
+    position: relative;
+    overflow: hidden;
+  }
+
+// END OF PROGRESS BAR
+
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+
+.search-components {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 4rem;
+    margin-left: 6rem;
+    width: 83%;
+}
+
+@media (max-width: 600px) {
+    .search-components {
+        margin-left: 5rem;
+    }
+}
+
+.buttons-next-to-search-bar {
+    display: flex;
+}
+
+.search-bar {
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    min-width: 215px;
+    width: 35vw;
+    font-family: "Abel";
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    outline: none;
+
+}
+
+.search-button {
+    margin-left: 2rem;
+    min-width: 4rem;
+
+    cursor: pointer;
+
+    width: 5rem;
+    height: 3.7rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+// TOGGLE FILTER MENU
+
+.toggle-filter-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70vw;
+    margin-left: 6rem;
+    margin-top: 2rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.filter-sub {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.cool-label {
+    background-color: rgb(222, 218, 218);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.3rem;
+    border: 2px solid rgb(222, 218, 218);
+
+    user-select: none;
+
+    font-family: "Abel";
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+
+}
+
+.filter-desc {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    max-width: 85%;
+    font-family: "Montserrat", sans-serif;
+}
+
+.type-selected {
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.date-filter {
+    margin-top: 0.5rem;
+}
+
+.date-input {
+    margin: 0.2rem 0.5rem;
+}
+
+
+.add-tag-button {
+    padding: 0rem 1rem;
+    margin: 0rem 0.5rem;
+    height: 1.4rem;
+}
+
+.tag-limit-warning {
+    margin-top: 0.5rem;
+}
+
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: 2.5rem;
+}
+
+.tag-label {
+    cursor: pointer;
+    white-space: nowrap;
+    margin: 0.25rem 0.2rem;
+}
+
+// END OF TOGGLE FILTER MENU
+
+
+
+
+// SEARCH ICON
+
+.gg-search {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 100%;
+    margin-left: -4px;
+    margin-top: -4px
+}
+.gg-search::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    height: 8px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 12px
+}
+
+// END OF SEARCH ICON
+
+
+.stats-widget-container {
+
+    color: white;
+    font-size: 1.2rem;
+    font-family: "Abel";
+    letter-spacing: 0.05rem;
+
+    padding: 1.5rem;
+    box-shadow: 12px 12px 2px 1px rgba(4, 4, 129, 0.2);
+
+    border: 4px ridge rgb(92, 87, 84);
+    background: rgb(35,39,116);
+    background: linear-gradient(121deg, rgba(35,39,116,1) 16%, rgba(52,20,12,1) 46%, rgba(12,31,52,1) 81%); 
+    background-size: 300% 300%;
+
+    animation: gradient 28s ease infinite;
+    
+    .user-stat {
+        margin-right: 1rem;
+    }
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

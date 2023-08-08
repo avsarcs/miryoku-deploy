@@ -1,0 +1,80 @@
+.overlay-wrapper {
+  padding: 2em;
+}
+
+.overlay-background {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+
+    transition: transform;
+    
+    // animation: slideOverlayBackground 0.4s 1 ease-out;
+  }
+  
+  .overlay-container {
+    background-color: white;
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 2em;
+    border-radius: 15px;
+
+    animation: slideOverlay 0.3s 1 ease-out;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 10;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    overflow-y: scroll;
+
+    width: fit-content;
+    height: fit-content;
+  }
+
+  // @keyframes slideOverlayBackground {
+  //   from {
+  //       transform: translateY(-100vh)
+  //   }
+  //   to {
+  //       transform: translateY(0);
+  //   }
+  // }
+  
+
+  @keyframes slideOverlay {
+    from {
+        transform: translateY(20vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  
+  .overlay-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 0.5em;
+  }
+  
+  .overlay-close {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5em;
+    cursor: pointer;
+  }

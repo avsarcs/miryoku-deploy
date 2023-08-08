@@ -1,0 +1,328 @@
+@import "./variables";
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 90vh;
+    padding-top: 10vh;
+
+    // background-color: $background-color-2;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+
+    // background:
+    //     radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 9%, hsla(0, 100%, 20%, 0) 9%) 0 0,
+    //     radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 8%, hsla(0, 100%, 20%, 0) 10%) 50px 50px,
+    //     radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 50px 0,
+    //     radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 0 50px,
+    //     radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 50px 0,
+    //     radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 100px 50px,
+    //     radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 0 0,
+    //     radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 50px 50px,
+    //     linear-gradient(45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0,
+    //     linear-gradient(-45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0;
+    //     background-color: #300;
+    //     background-size: 100px 100px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%
+}
+
+.profile-customize-button {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin-bottom: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-cog {
+    margin-left: 0.5em;
+}
+
+
+.profile-customize-button:hover {
+
+    .fa-cog {
+        animation: rotation 2s infinite linear;
+    }
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+.epic-name-ego-bloat {
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+    width: 100vw;
+    overflow-wrap: break-word;
+}
+
+.epic-user-about {
+    white-space: pre-line;
+    font-size: 1.05em;
+    border-radius: 2px;
+    max-width: 80%;
+    overflow-wrap: break-word;
+    margin-bottom: 1em;
+}
+
+.skills-display {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.artwork-feature {
+    display: flex;
+    flex-flow: center;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-overlay-bottom {
+    display: flex;
+    justify-content: flex-end;
+    
+    padding-right: 2em;
+}
+
+// Below regards the overlay
+
+@mixin overlayColumnGeneral {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: fit-content;
+    overflow: scroll;
+}
+
+.overlay-personal-info {
+    @include overlayColumnGeneral();
+}
+
+.overlay-customize-name-wrapper {
+    display: flex;
+}
+
+.overlay-profile-name {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.overlay-profile-general {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.overlay-customize-wrapper {
+    display: flex;
+    min-width: fit-content;
+    margin-top: 1em;
+    padding-right: 3em;
+}
+
+.changeable-text {
+    resize: none;
+    border-width: 0 0 2px 0;
+    font-size: 0.9em;
+    background: none;
+    border-style: solid;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: border-color 1s ease 0s;
+}
+
+.overlay-profile-styles {
+    @include overlayColumnGeneral();
+}
+
+.about-customize {
+    resize: vertical;
+}
+
+.email-customize {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.changeable-text:focus {
+    outline: none;
+    border-color: black;
+}
+
+.title-customize-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110%;
+    padding-bottom: 15px;
+}
+
+@mixin backgrounds-display {
+    overflow-y: scroll;
+    overflow-x: normal;
+    overflow-wrap: normal;
+    margin-top: 1em;
+}
+
+.backgrounds-display {
+    @include backgrounds-display();
+
+    max-width: 350px;
+    max-height: 110px;
+}
+
+.large-backgrounds-display {
+    @include backgrounds-display();
+
+    max-width: 650px;
+    max-height: 220px;
+}
+
+@mixin background-box {
+    cursor: pointer;
+    display: inline-block;
+
+    margin-right: 1em;
+
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.background-box {
+
+    @include background-box();
+
+    min-width: 50px;
+    max-width: 50px;
+    width: 50px;
+
+    min-height: 50px;
+    max-height: 50px;
+    height: 50px;
+}
+
+.large-background-box {
+
+    @include background-box();
+
+    min-width: 100px;
+    max-width: 100px;
+    width: 100px;
+
+    min-height: 100px;
+    max-height: 100px;
+    height: 100px;
+}
+
+.about-customize-preview-container {
+    margin-top: 1em;
+}
+
+.artwork-selection {
+    padding-bottom: 1em;
+}
+
+.name-display-simple {
+
+    display: block;
+    cursor: pointer;
+    padding: 1em 0;
+
+    margin-top: 1em;
+
+    border: 2px solid black;
+    border-right: 0;
+    border-left: 0;
+
+}
+
+// LIST OF PROFILE BACKGROUNDS
+
+.profile-bg-1 {
+    background-image: url("../img/profile-bg-1.webp");
+}
+
+.profile-bg-2 {
+    background-image: url("../img/profile-bg-2.webp");
+}
+
+.profile-bg-3 {
+    background-image: url("../img/profile-bg-3.png");
+}
+
+.profile-bg-4 {
+    background-image: url("../img/profile-bg-4.webp");
+}
+
+.profile-bg-5 {
+    background-image: url("../img/profile-bg-5.webp");
+}
+
+// END OF PROFILE BACKGROUNDs
+
+// LIST OF ABOUT STYLES
+
+.about-style-1 {
+    background-color: #ffffff;
+opacity: 0.8;
+background-image:  linear-gradient(135deg, #ececec 25%, transparent 25%), linear-gradient(225deg, #ececec 25%, transparent 25%), linear-gradient(45deg, #ececec 25%, transparent 25%), linear-gradient(315deg, #ececec 25%, #ffffff 25%);
+background-position:  11px 0, 11px 0, 0 0, 0 0;
+background-size: 22px 22px;
+background-repeat: repeat;
+}
+
+.about-style-2 {
+    background-color: #ffffff;
+    background-image: radial-gradient( ellipse farthest-corner at 23px 23px , #ececec, #ececec 50%, #ffffff 50%);
+    background-size: 23px 23px;
+}
+
+.about-style-3 {
+    background-color: #ffffff;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 19px ), repeating-linear-gradient( #ececec55, #ececec );
+}
+
+.about-style-4 {
+    background-color: "#ffffff";
+    background: linear-gradient(135deg, #e3e3e355 25%, transparent 25%) -22px 0/ 44px 44px, linear-gradient(225deg, #e3e3e3 25%, transparent 25%) -22px 0/ 44px 44px, linear-gradient(315deg, #e3e3e355 25%, transparent 25%) 0px 0/ 44px 44px, linear-gradient(45deg, #e3e3e3 25%, #ffffff 25%) 0px 0/ 44px 44px;        
+}
+
+.about-style-5 {
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #ececec 50%, #ffffff 50%);
+    background-size: 19px 19px;
+}
+
+// END OF LIST OF ABOUT STYLES
