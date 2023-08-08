@@ -30,7 +30,7 @@ app.use(express.json())
 // middleware for cookies
 app.use(cookieParser())
 
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, '..', 'miryoku-front-end', 'public')));
 
 // routes
 app.use('/register', require('./routes/register'))
@@ -60,7 +60,7 @@ app.use('/flag', require('./routes/api/flags'))
 // })
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'miryoku-front-end', 'public', 'index.html'));
 });
 
 mongoose.connection.once('open', () => {
