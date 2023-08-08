@@ -14,9 +14,6 @@ import Logout from "./pages/Logout"
 import RequireAuth from "./components/RequireAuth"
 import PersistLogin from "./components/PersistLogin"
 
-import User from "./dummyData/dummy-user.json"
-import Artworks from "./dummyData/dummy-artworks.json"
-
 import { Route, Routes} from "react-router-dom"
 import Artwork from "./pages/Artwork"
 
@@ -25,30 +22,30 @@ const hasAuth = false;
 
 export default function App() {
     return (<>
-    <Navbar user={User[0]} hasAuth={hasAuth} />
+    <Navbar hasAuth={hasAuth} />
 
     <Routes>
 
         <Route element={<PersistLogin/>}>
             {/* public routes */}
-            <Route path="/" element={<Home hasAuth={hasAuth} user={User[0]} artworks={Artworks} />}/>
-            <Route path="/about" element={<About hasAuth={hasAuth} user={User[0]}/>} />
-            <Route path="/rules" element={<Rules hasAuth={hasAuth} user={User[0]}/>} />
+            <Route path="/" element={<Home hasAuth={hasAuth} />}/>
+            <Route path="/about" element={<About hasAuth={hasAuth} />} />
+            <Route path="/rules" element={<Rules hasAuth={hasAuth} />} />
 
-            <Route path="/login" element={<Login hasAuth={hasAuth} user={User[0]}/>} />
+            <Route path="/login" element={<Login hasAuth={hasAuth} />} />
 
-            <Route path="/signup" element={<Signup hasAuth={hasAuth} user={User[0]}/>} />
-            <Route path="/feed" element={<Feed hasAuth={hasAuth} user={User[0]} artworks={Artworks} />}/>
+            <Route path="/signup" element={<Signup hasAuth={hasAuth} />} />
+            <Route path="/feed" element={<Feed hasAuth={hasAuth} />}/>
 
             {/* routes that look differently to authenticated users */}
-            <Route path="/artwork/:id" element={<Artwork hasAuth={hasAuth} user={User[0]} />}/>
-            <Route path="/user/:id" element={<Profile hasAuth={false} user={User[0]}/>} />
+            <Route path="/artwork/:id" element={<Artwork hasAuth={hasAuth}  />}/>
+            <Route path="/user/:id" element={<Profile hasAuth={false} />} />
 
             {/* routes that require authentication */}
                 <Route element={<RequireAuth />}>
                     <Route path="/logout" element={<Logout/>}/>
-                    <Route path="/create" element={<Create hasAuth={hasAuth} user={User[0]}/>} />
-                    <Route path="/feedback" element={<Feedback hasAuth={hasAuth} user={User[0]}/>} />
+                    <Route path="/create" element={<Create hasAuth={hasAuth} />} />
+                    <Route path="/feedback" element={<Feedback hasAuth={hasAuth} />} />
                 </Route>
             </Route>
         

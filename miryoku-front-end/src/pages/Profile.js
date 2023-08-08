@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import StatsWidget from "../components/StatsWidget"
 import Tabs from "../components/Tabs"
-import profileOwnerArtworks from "../dummyData/dummy-artworks.json"
 import ArtworkCard from "../components/ArtworkCard";
 import Feedback from "../components/Feedback";
 import Overlay from "../components/Overlay";
@@ -11,8 +10,6 @@ import { Checkbox, FormControlLabel, Slider } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
-import Feedbacks from "../dummyData/dummy-feedbacks.json"
-import Users from "../dummyData/dummy-user.json"
 import axios from "../api/axios";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useUser } from "../context/UserContext";
