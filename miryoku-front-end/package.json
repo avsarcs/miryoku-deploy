@@ -1,6 +1,7 @@
 {
   "name": "miryokuapp",
   "version": "0.1.0",
+  "homepage": "https://miryoku.onrender.com/",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
