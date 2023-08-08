@@ -31,10 +31,6 @@ app.use(cookieParser())
 
 app.use(express.static(path.join(__dirname, 'build')))
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', '../../miryoku-front-end/public/index.html'));
-});
-
 // routes
 app.use('/register', require('./routes/register'))
 app.use('/auth', require('./routes/auth'))
@@ -61,6 +57,10 @@ app.use('/flag', require('./routes/api/flags'))
 //         res.type('txt').send("404 Not Found");
 //     }
 // })
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', '..index.html'));
+});
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')
