@@ -412,7 +412,13 @@ export default function Artwork(props) {
             <div className="artwork-container">
                 <div className="artwork-title" style={artwork?.titleStyle}>{artwork?.title}</div>
                 <div className="artwork-info" style={artwork?.titleStyle}>
-                    <Link style={{"all": "unset", "cursor": "pointer"}} to={`/user/${artworkOwner?._id}`}>by {artworkOwner?.name}</Link> &emsp; &emsp; {artwork?.type}📖
+                    <Link style={{"all": "unset", "cursor": "pointer"}} to={`/user/${artworkOwner?._id}`}>by {artworkOwner?.name}</Link> &emsp; &emsp; {artwork?.type}
+                    {(artwork?.type === "Fiction" || artwork?.type === "Other") && "📖" }
+                    {(artwork?.type === "Poetry") && "🪶"}
+                    {(artwork?.type === "Music") && "🎶"}
+                    {(artwork?.type === "Cinema") && "🎥"}
+                    {(artwork?.type === "Photography") && "📷" }
+                    {(artwork?.type === "Painting") && "🎨"}
                     &emsp;&emsp; <div className="jump-a-line"/> {artwork?.rating?.score} / 5.0 ({artwork?.rating?.count})</div>
                 <div className="artwork-tags">
                     {
