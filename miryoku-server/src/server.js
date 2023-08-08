@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser')
 const credentials = require('./middleware/credentials')
 const mongoose = require('mongoose')
 const connectDB = require('./config/mongoose')
+const path = require('path')
 const PORT = process.env.PORT || 3001
 
 // Connect to MongoDB
@@ -59,7 +60,7 @@ app.use('/flag', require('./routes/api/flags'))
 // })
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', '..index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 mongoose.connection.once('open', () => {
