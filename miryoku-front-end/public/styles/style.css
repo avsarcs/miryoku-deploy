@@ -300,6 +300,22 @@ body {
     padding-bottom: 40vh;
   }
 }
+@media (max-height: 550px) {
+  .story-one {
+    padding-bottom: 30vh;
+  }
+  .story-two {
+    padding-bottom: 120vh;
+  }
+}
+@media (max-height: 470px) {
+  .story-one {
+    padding-bottom: 60vh;
+  }
+  .story-two {
+    padding-bottom: 200vh;
+  }
+}
 .jump-a-line {
   display: none;
 }
