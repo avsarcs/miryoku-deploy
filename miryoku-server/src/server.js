@@ -29,6 +29,8 @@ app.use(express.json())
 // middleware for cookies
 app.use(cookieParser())
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 // routes
 app.use('/register', require('./routes/register'))
 app.use('/auth', require('./routes/auth'))
@@ -46,15 +48,19 @@ app.use('/comment', require('./routes/api/comments'))
 app.use('/reply', require('./routes/api/replies'))
 app.use('/flag', require('./routes/api/flags'))
 
-app.all('*', (req, res) => {
-    res.status(404)
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
-    if (req.accepts('json')) {
-        res.json({ "error": "404 Not Found" });
-    } else {
-        res.type('txt').send("404 Not Found");
-    }
-})
+// app.all('*', (req, res) => {
+//     res.status(404)
+
+//     if (req.accepts('json')) {
+//         res.json({ "error": "404 Not Found" });
+//     } else {
+//         res.type('txt').send("404 Not Found");
+//     }
+// })
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')
