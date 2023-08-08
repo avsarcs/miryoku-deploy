@@ -103,7 +103,7 @@ const getUserFeedbacks = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'Feedback ID required' })
 
     if (!req?.query?.page) {
-        const feedbacks = await Feedback.find({ownerID: req.params.id}).exec()
+        const feedbacks = await Feedback.find({ownerID: req.params.id}).sort({ createdAt: -1 }).exec()
         res.json(feedbacks)
     }
 
@@ -112,7 +112,7 @@ const getUserFeedbacks = async (req, res) => {
 
     try {
         
-        const fetchedFeedbacks = await Feedback.paginate({ownerID: req.params.id}, { offset, limit: 3 })
+        const fetchedFeedbacks = await Feedback.paginate({ownerID: req.params.id}, { offset, limit: 3, sort: { createdAt: -1 } })
         res.json(fetchedFeedbacks)
 
     } catch (error) {
@@ -123,7 +123,7 @@ const getUserFeedbacks = async (req, res) => {
 // GET request to /feedback/artwork/:id
 const getArtworkFeedbacks = async (req ,res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'Artwork ID required' })
-    const feedbacks = await Feedback.find({artworkID: req.params.id}).exec()
+    const feedbacks = await Feedback.find({artworkID: req.params.id}).sort({ createdAt: -1 }).exec()
     res.json(feedbacks)
 }
 

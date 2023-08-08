@@ -130,7 +130,7 @@ const getManyArtworks = async (req, res) => {
 
     try {
 
-        const artworks = await Artwork.paginate(options, { offset, limit: 50 })
+        const artworks = await Artwork.paginate(options, { offset, limit: 50, sort: { createdAt: -1 } })
         res.json(artworks)
 
     } catch (error) {
@@ -164,7 +164,7 @@ const getArtwork = async (req, res) => {
 const getUserArtworks = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'User ID required' })
 
-    const artworks = await Artwork.find({ ownerID: req.params.id }).exec()
+    const artworks = await Artwork.find({ ownerID: req.params.id }).sort({ createdAt: -1 }).exec()
     res.json(artworks)
 }
 
@@ -185,7 +185,7 @@ const getFeaturedArtworks = async (req, res) => {
         const fetchedFeaturedArtworks = await Artwork.paginate({
             _id: { $in: user.featuredArtworks },
             ownerID: req.params.id
-        }, { offset, limit: 3 })
+        }, { offset, limit: 3, sort: { createdAt: -1 } })
     
         res.json(fetchedFeaturedArtworks)
       } catch (error) {

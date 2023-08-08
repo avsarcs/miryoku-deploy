@@ -108,7 +108,7 @@ const getReply = async (req, res) => {
 const getFeedbackReplies = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'Feedback ID required' })
     
-    const replies = await Reply.find({for: "feedback", parentID: req.params.id}).exec()
+    const replies = await Reply.find({for: "feedback", parentID: req.params.id}).sort({ createdAt: -1 }).exec()
     res.json(replies)
 
 }
@@ -117,7 +117,7 @@ const getFeedbackReplies = async (req, res) => {
 const getCommentReplies = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'Feedback ID required' })
     
-    const replies = await Reply.find({for: "comment", parentID: req.params.id}).exec()
+    const replies = await Reply.find({for: "comment", parentID: req.params.id}).sort({ createdAt: -1 }).exec()
 
     res.json(replies)
 

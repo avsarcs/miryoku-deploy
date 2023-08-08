@@ -98,7 +98,7 @@ const updateComment = async (req, res) => {
 // GET request to /comment/artwork/:id
 const getArtworkComments = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'Artwork ID required' })
-    const comments = await Comment.find({artworkID: req.params.id}).exec()
+    const comments = await Comment.find({artworkID: req.params.id}).sort({ createdAt: -1 }).exec()
     res.json(comments)
 }
 
