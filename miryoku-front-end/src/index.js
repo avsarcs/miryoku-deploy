@@ -1,13 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { HashRouter, Route, Routes } from "react-router-dom"
 import { AuthProvider } from "./context/authProvider"
 import { UserProvider } from "./context/UserContext"
 
 import App from "./App"
 
 ReactDOM.render(<React.StrictMode>
-                    <BrowserRouter>
+                    <HashRouter>
                         <AuthProvider>
                             <UserProvider>
                                 <Routes>
@@ -15,5 +15,5 @@ ReactDOM.render(<React.StrictMode>
                                 </Routes>
                             </UserProvider>
                         </AuthProvider>
-                    </BrowserRouter>
+                    </HashRouter>
                 </React.StrictMode>, document.getElementById("root"))
