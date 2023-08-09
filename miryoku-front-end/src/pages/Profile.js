@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import StatsWidget from "../components/StatsWidget"
 import Tabs from "../components/Tabs"
+import profileOwnerArtworks from "../dummyData/dummy-artworks.json"
 import ArtworkCard from "../components/ArtworkCard";
 import Feedback from "../components/Feedback";
 import Overlay from "../components/Overlay";
@@ -10,6 +11,8 @@ import { Checkbox, FormControlLabel, Slider } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
+import Feedbacks from "../dummyData/dummy-feedbacks.json"
+import Users from "../dummyData/dummy-user.json"
 import axios from "../api/axios";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useUser } from "../context/UserContext";
@@ -597,6 +600,29 @@ const fontOptions = [
             await axiosPrivate.patch(`/user/${profileOwner._id}`, customProfile)
             navigate(0)
     }
+
+    // Make the profile name show without wrapping on mobile screens
+    useEffect(() => {
+        if (profileOwner?.profileStyle?.nameStyle) {
+            const { nameStyle } = profileOwner?.profileStyle
+
+            if ((nameStyle?.fontSize.split("em")[0] * 16 * profileOwner?.name?.length) > window.innerWidth ) {
+                setProfileOwner((prevProfileOwner) => {
+                    return {
+                        ...prevProfileOwner,
+                        profileStyle: {
+                            ...prevProfileOwner.profileStyle,
+                            nameStyle: {
+                                ...prevProfileOwner.profileStyle.nameStyle,
+                                fontSize: `${(window.innerWidth / profileOwner?.name?.length) + 7}px`
+                            }
+                        }
+                    }
+                })
+            }
+
+        }
+    }, [profileOwner?.profileStyle?.nameStyle])
 
     // Part below is related to the flag overlay functionality
     const [isFlagOverlayOpen, setIsFlagOverlayOpen] = useState(false)
