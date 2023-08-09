@@ -116,6 +116,12 @@
     margin-bottom: 0.5em;
 }
 
+@media (max-width: 600px) {
+    .commenter-details {
+        flex-direction: column;
+    }
+}
+
 .commenter-detail {
     margin-right: 1em;
     font-weight: bold;
