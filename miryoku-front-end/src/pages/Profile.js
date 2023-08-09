@@ -611,7 +611,8 @@ const fontOptions = [
                             ...prevProfileOwner.profileStyle,
                             nameStyle: {
                                 ...prevProfileOwner.profileStyle.nameStyle,
-                                fontSize: `${(window.innerWidth / profileOwner?.name?.length) + 7}px`
+                                fontSize: `${(window.innerWidth / profileOwner?.name?.length) + 7
+                                - (parseFloat(nameStyle?.letterSpacing?.split("em")[0]) * 10)}px`
                             }
                         }
                     }
