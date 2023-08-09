@@ -225,7 +225,7 @@ export default function Signup(props) {
                                 <input
                                     onFocus={() => setNameFocus(true)}
                                     onBlur={() => setNameFocus(false)}
-                                    type="input" onChange={handleChange} className="form__field" placeholder="name" name="name" id='name' required />
+                                    maxLength={25} type="input" onChange={handleChange} className="form__field" placeholder="name" name="name" id='name' required />
                                 <label htmlFor="name" className="form__label">Name</label>
                                 <p className={!validName && nameFocus ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} /> 4 to 24 characters.<br />
@@ -248,7 +248,7 @@ export default function Signup(props) {
                                 <input
                                     onFocus={() => setEmailFocus(true)}
                                     onBlur={() => setEmailFocus(false)}
-                                    type="email" onChange={handleChange} className="form__field" placeholder="email" name="email" id='email' required />
+                                    maxLength={400} type="email" onChange={handleChange} className="form__field" placeholder="email" name="email" id='email' required />
                                 <label htmlFor="email" className="form__label">Email</label>
                                 <p className={emailFocus && !validEmail ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} /> Must be a valid email.
@@ -280,7 +280,7 @@ export default function Signup(props) {
                     <div className="margin-top margin-bottom">
                         Describe yourself in a few sentences, if you want to:
                     </div>
-                    <textarea name="about" onChange={handleChange} style={{"background": "white", "height": "6em", "width": "18em", "borderWidth": "2px", "fontSize": "0.8em"}} className="changeable-text about-customize"/>
+                    <textarea maxLength={10000} name="about" onChange={handleChange} style={{"background": "white", "height": "6em", "width": "18em", "borderWidth": "2px", "fontSize": "0.8em"}} className="changeable-text about-customize"/>
                     <button
                     disabled={!validName || !validEmail || !validPassword ? true : false}
                     type="submit"
