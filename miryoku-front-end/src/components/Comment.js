@@ -5,7 +5,7 @@ import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import { useUser } from '../context/UserContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Overlay from './Overlay';
 import ReadMore from './ReadMore';
 
@@ -254,7 +254,7 @@ export default function Comment(props) {
             }
 
             <div className='commenter-details'>
-                <div className='commenter-detail'> {commenter?.name} </div>
+                <div className='commenter-detail'> <Link to={`/user/${commenter?._id}`} style={{"all": "unset", "cursor": "pointer"}}>{commenter?.name}</Link> </div>
                 <div className='commenter-detail'> | Level {commenter?.level} </div>
             </div>
             <div className='comment-body'>

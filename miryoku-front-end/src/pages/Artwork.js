@@ -324,7 +324,7 @@ export default function Artwork(props) {
 
       useEffect(() => {
         const handleResize = () => {
-          if (window.innerWidth > 640) {
+          if (window.innerWidth > 750) {
             setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
                 return {
                     ...prevYoutubePlayerOpts,
@@ -334,12 +334,12 @@ export default function Artwork(props) {
             })
           }
 
-          if (window.innerWidth < 640 && youtubePlayerOpts.width !== '320') {
+          if (window.innerWidth < 750 && youtubePlayerOpts.width !== '320') {
             setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
                 return {
                     ...prevYoutubePlayerOpts,
-                    height: '170',
-                    width: (window.innerWidth - 60)
+                    height: (window.innerWidth - ((window.innerWidth / 100) * 20)) * (9/16),
+                    width: (window.innerWidth - ((window.innerWidth / 100) * 20))
                 }
             })
           }
@@ -355,7 +355,7 @@ export default function Artwork(props) {
 
       // Set youtubePlayerOpts width on mount.
       useEffect(() => {
-        if (window.innerWidth > 640) {
+        if (window.innerWidth > 700) {
             setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
                 return {
                     ...prevYoutubePlayerOpts,
@@ -365,12 +365,12 @@ export default function Artwork(props) {
             })
           }
 
-          if (window.innerWidth < 640 && youtubePlayerOpts.width !== '320') {
+          if (window.innerWidth < 750 && youtubePlayerOpts.width !== '320') {
             setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
                 return {
                     ...prevYoutubePlayerOpts,
-                    height: '170',
-                    width: (window.innerWidth - 60)
+                    height: (window.innerWidth - ((window.innerWidth / 100) * 20)) * (9/16),
+                    width: (window.innerWidth - ((window.innerWidth / 100) * 20))
                 }
             })
           }
@@ -381,18 +381,18 @@ export default function Artwork(props) {
 
     useEffect(() => {
 
-        if (window.innerWidth > 750) {
-            setImageWidth((prevImageWidth) => window.innerWidth - 400)
-        } else {
-            setImageWidth((prevImageWidth) => window.innerWidth - 70)
-        }
+        // if (window.innerWidth > 750) {
+        //     setImageWidth((prevImageWidth) => window.innerWidth - 400)
+        // } else {
+            setImageWidth((prevImageWidth) => window.innerWidth - ((window.innerWidth / 100) * 20))
+        // }
 
         const handleResize = () => {
-            if (window.innerWidth > 750) {
-                setImageWidth((prevImageWidth) => window.innerWidth - 400)
-            } else {
-                setImageWidth((prevImageWidth) => window.innerWidth - 70)
-            }
+            // if (window.innerWidth > 750) {
+            //     setImageWidth((prevImageWidth) => window.innerWidth - 400)
+            // } else {
+                setImageWidth((prevImageWidth) => window.innerWidth - ((window.innerWidth / 100) * 20))
+            // }
         }
     
         window.addEventListener('resize', handleResize)
@@ -445,10 +445,10 @@ export default function Artwork(props) {
                     {(artwork?.type === "Photography") && "📷" }
                     {(artwork?.type === "Painting") && "🎨"}
                     &emsp;&emsp; <div className="jump-a-line"/> {artwork?.rating?.score} / 5.0 ({artwork?.rating?.count})</div>
-                <div className="artwork-tags">
+                <div className="tag-filter filter-sub artwork-tags">
                     {
                         artwork?.tags?.map( (tag) => (
-                            <label key={tag} className="cool-label" style={{fontSize: "0.9em"}} >{tag}</label>
+                            <label key={tag} className="cool-label tag-label" style={{fontSize: "0.9em"}} >{tag}</label>
                         ) )
                     }
                     { hasAuth &&

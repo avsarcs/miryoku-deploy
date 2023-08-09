@@ -3,7 +3,7 @@ import FlagOverlay from './FlagOverlay';
 import { useUser } from '../context/UserContext';
 import useAuth from '../hooks/useAuth';
 import axios from '../api/axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import Overlay from './Overlay';
 
@@ -110,7 +110,7 @@ export default function Reply(props) {
             }
 
             <div className='reply-details'>
-                <div className='reply-detail'>{replier?.name}</div>
+                <div className='reply-detail'><Link to={`/user/${replier?._id}`} style={{"all": "unset", "cursor": "pointer"}}>{replier?.name}</Link></div>
                 <div className='reply-detail'>| Level {replier?.level}</div>
             </div>
             <div className='reply-body'>
