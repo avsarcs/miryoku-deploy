@@ -4,15 +4,18 @@ import { Link } from "react-router-dom"
 export default function About(props) {
 
     const [restrictWidth, setRestrictWidth] = useState("60vw")
+    const [alignWhere, setAlignWhere] = useState("center")
 
     useEffect(() => {
 
         if (window.innerWidth > 800) {
             setRestrictWidth((prevRestrictWidth) => "60vw")
+            setAlignWhere("center")
         }
         else
         {
             setRestrictWidth((prevRestrictWidth) => "80vw")
+            setAlignWhere("left")
         }
 
         const handleResize = () => {
@@ -33,12 +36,14 @@ export default function About(props) {
         }
       }, [])
 
+
+
     return (
         <div className="all-container">
             <div className="artwork-container" style={{"width": restrictWidth}}>
-                <div className="flex-column" style={{"alignItems": "center", "justifyContent": "center"}}>
+                <div className="flex-column" style={{"alignItems": "center", "justifyContent": alignWhere}}>
                     <div className="flex-column fancy-title"
-                    style={{"height": "30vh",
+                    style={{"height": "40vh",
                             "justifyContent": "center", "textAlign": "center"}}> Grow as an artist</div>
                     <div className="margin-bottom sleek-text slightly-larger border-it-column">
                         <div className="margin-bottom">Miryoku aims to be a place where anyone dabbling with arts --whether they are an amateur/professional; painter, writer, cinematographer or anything else-- can come to flourish.<br/> </div>

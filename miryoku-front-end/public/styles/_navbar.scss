@@ -23,13 +23,11 @@ body {
 
 .navbar {
   height: 10vh;
+  min-height: 100px;
   background-color: #fef7e5;
   position: relative;
   z-index: 100;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-}
-
-.logo {
 }
 
 .menu-icon {
@@ -109,51 +107,3 @@ body {
     margin-top: 22px;
   }
 }
-
-// .top-navbar {
-//     display: flex;
-//         flex-direction: row;
-//         align-items: center;
-    
-//         position: fixed;
-//         z-index: 1;
-
-//         min-height: 75px;
-//         height: 10vh;
-//         width: 100vw;
-//         box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
-//         background: $background-color;
-//     }
-    
-//     .navbar-title {
-//         width: 50%;
-//         margin-left: 2.4rem;
-//         color: black;
-//         font-family: "Montserrat", sans-serif;
-//         font-size: 3rem;
-//         cursor: pointer;
-//         text-decoration: none;
-//         color: black;
-//     }
-    
-//     .navbar-links {
-//         display: flex;
-//         justify-content: flex-end;
-//         align-items: center;
-    
-//         margin-right: 2.4rem;
-    
-//         width: 50%;
-    
-//         .navbar-link {
-//             color: black;
-//             text-decoration: none;
-//             margin: 0rem 1.8rem;
-//             font-family: "Sofia Sans", sans-serif;
-//             font-size: 1.1rem;
-//             cursor: pointer;
-//         }
-    
-//     }
-    
-    // END OF NAVBAR

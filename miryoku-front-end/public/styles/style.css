@@ -113,6 +113,7 @@ body {
 
 .navbar {
   height: 10vh;
+  min-height: 100px;
   background-color: #fef7e5;
   position: relative;
   z-index: 100;
