@@ -338,8 +338,8 @@ export default function Artwork(props) {
             setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
                 return {
                     ...prevYoutubePlayerOpts,
-                    height: '195',
-                    width: '320'
+                    height: '170',
+                    width: (window.innerWidth - 60)
                 }
             })
           }
@@ -351,6 +351,29 @@ export default function Artwork(props) {
         return () => {
           window.removeEventListener('resize', handleResize)
         }
+      }, [])
+
+      // Set youtubePlayerOpts width on mount.
+      useEffect(() => {
+        if (window.innerWidth > 640) {
+            setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
+                return {
+                    ...prevYoutubePlayerOpts,
+                    height: '390',
+                    width: '640'
+                }
+            })
+          }
+
+          if (window.innerWidth < 640 && youtubePlayerOpts.width !== '320') {
+            setYoutubePlayerOpts((prevYoutubePlayerOpts) => {
+                return {
+                    ...prevYoutubePlayerOpts,
+                    height: '170',
+                    width: (window.innerWidth - 60)
+                }
+            })
+          }
       }, [])
 
     // For image artworks
@@ -367,6 +390,8 @@ export default function Artwork(props) {
         const handleResize = () => {
             if (window.innerWidth > 750) {
                 setImageWidth((prevImageWidth) => window.innerWidth - 400)
+            } else {
+                setImageWidth((prevImageWidth) => window.innerWidth - 70)
             }
         }
     
