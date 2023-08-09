@@ -197,14 +197,13 @@ export default function Login(props) {
                     <form onSubmit={handleSubmit}>
                         <div className="margin-bottom sleek-text slightly-larger border-it-column">
                             <div className="auth-card">
-                                <div class="form__group field">
-                                    <input type="input" onChange={handleChange} class="form__field" placeholder="email" name="email" id='email' required />
-                                    <label for="email" class="form__label">Email</label>
-                                </div>
-                                <div class="form__group field">
-                                    <input type="password" onChange={handleChange} class="form__field" placeholder="password" name="password" id='password' required />
-                                    <label for="password" class="form__label">Password</label>
-                                </div>
+
+                                    <label for="email" className="auth-field-label" >Email:</label>
+                                    <input className="margin-bottom auth-field" type="input" onChange={handleChange}  placeholder="email" name="email" id='email' required />
+
+                                    <label for="password" className="auth-field-label">Password:</label>
+                                    <input className="auth-field" type="password" onChange={handleChange}  placeholder="password" name="password" id='password' required />
+                                    
                                 <div className="sleek-text margin-top">
                                     <input
                                         type="checkbox"
