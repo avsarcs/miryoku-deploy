@@ -300,20 +300,28 @@ body {
     padding-bottom: 40vh;
   }
 }
-@media (max-height: 550px) {
+@media (max-height: 720px) {
   .story-one {
     padding-bottom: 30vh;
   }
   .story-two {
-    padding-bottom: 120vh;
+    padding-bottom: 80vh;
   }
 }
-@media (max-height: 470px) {
+@media (max-height: 570px) {
   .story-one {
     padding-bottom: 60vh;
   }
   .story-two {
-    padding-bottom: 200vh;
+    padding-bottom: 130vh;
+  }
+}
+@media (max-height: 440px) {
+  .story-one {
+    padding-bottom: 80vh;
+  }
+  .story-two {
+    padding-bottom: 170vh;
   }
 }
 .jump-a-line {

@@ -361,7 +361,7 @@ export default function Artwork(props) {
         if (window.innerWidth > 750) {
             setImageWidth((prevImageWidth) => window.innerWidth - 400)
         } else {
-            setImageWidth((prevImageWidth) => 350)
+            setImageWidth((prevImageWidth) => window.innerWidth - 70)
         }
 
         const handleResize = () => {
