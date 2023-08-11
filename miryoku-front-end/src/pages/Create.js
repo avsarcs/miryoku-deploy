@@ -287,12 +287,10 @@ export default function Create(props) {
         // }
         if (link.split("watch?v=").length > 1 && link.split("watch?v=")[1].length > 10) {
 
-            console.log("sanitized link: " + link.split("watch?v=")[1].substring(0, 11))
             return link.split("watch?v=")[1].substring(0, 11)
 
         } else if (link.split('.be/').length > 1 && link.split('.be/')[1].length > 10) {
             
-            console.log('sanitized link: ' + link.split('.be/')[1].substring(0, 11))
             return link.split('.be/')[1].substring(0, 11)
 
         } else {
@@ -300,14 +298,12 @@ export default function Create(props) {
         }
 
       }
-      useEffect(() => {
-        console.log(artwork.body)
-      }, [artwork])
+
 
     // Check the type, surround the link with the appropriate markdown
     function handleBodyChange(e) {
         const { value } = e.target
-        console.log("You called handleBodyChange")
+
         switch ( artwork.type ) {
             case "Cinema":
                 setArtwork((prevNewArtwork) => {

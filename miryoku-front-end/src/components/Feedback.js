@@ -192,6 +192,27 @@ export default function Feedback(props) {
         setIsFlagOverlayOpen((prevState) => !prevState)
     }
 
+    // Keep reply up to date if feedback or user changes
+    useEffect(() => {
+        setReply((prevReply) => {
+            return {
+                ...prevReply,
+                "parentID": feedback._id,
+                "ownerID": user?._id
+            }
+        })
+    }, [feedback._id, user])
+
+    const handleReplySubmit = async function (e) {
+        e.preventDefault()
+        try {
+            await axiosPrivate.post('reply', reply)
+            navigate(0)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <div className='feedback-box'>
 
@@ -254,7 +275,7 @@ export default function Feedback(props) {
             {/* This is where the user will rate the usefulness of the feedback */}
             {
                 hasAuth && (
-                    <form>
+                    <form onSubmit={handleReplySubmit}>
                         <div className="reply-submit-container">
                             <textarea ref={replyBarRef} rows="1" id="replyTextArea" className="reply-bar" name="replyText" style={replyBarStyle} value={reply.body}
                                 placeholder="Write a reply.." onClick={replyBarClicked} onChange={handleReply}/>

@@ -131,12 +131,6 @@ export default function Profile(props) {
             populateProfileOwnerArtworks()
         }
 
-        setTimeout(() => {
-            console.log("Profile owner artworks: " + JSON.stringify(profileOwnerArtworks))
-        }, 1000);
-
-        console.log("Profile owner featuredArtworks: " + profileOwner?.featuredArtworks)
-
     }, [profileOwner])
 
     // After the profile owner is fetched, determine if ownProfile or not.

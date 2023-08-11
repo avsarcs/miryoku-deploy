@@ -154,10 +154,6 @@ export default function Feed(props) {
         })
     }
 
-    useEffect(() => {
-        console.log("searchData: " + JSON.stringify(searchData))
-    }, [searchData])
-
     // Handles tag input change
     function handleTagChange(e) {
         setTag(e.target.value)

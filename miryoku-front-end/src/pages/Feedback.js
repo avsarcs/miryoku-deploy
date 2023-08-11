@@ -48,7 +48,6 @@ export default function Feedback(props) {
                 body: value
             }
         } )
-        console.log(JSON.stringify(feedback))
     }
 
     const [feedbackSent, setFeedbackSent] = useState(false)

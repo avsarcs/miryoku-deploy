@@ -41,10 +41,10 @@ export default function Artwork(props) {
         e.preventDefault()
         try {
             await axiosPrivate.delete(`/artwork/${artwork._id}`)
-            console.log("Right after the delete call")
+
             navigate('/feed', { replace: true } )
         } catch (error) {
-            console.log("You got into errorLand")
+
             console.error(error)
         }
     }
@@ -307,10 +307,6 @@ export default function Artwork(props) {
         }
         
     }, [user, artwork])
-
-    useEffect(() => {
-        console.log("userRating is: " + userRating)
-    }, [userRating])
 
     // For video artworks
     const [youtubePlayerOpts, setYoutubePlayerOpts] = useState({

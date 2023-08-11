@@ -90,8 +90,6 @@ export default function Login(props) {
 
     // LET THE ASYNCHRONOUS SETAUTH OPERATION BE DONE
     useEffect(() => {
-        
-        console.log("Here's auth: " + JSON.stringify(auth))
 
         const populateUser = async () => {
             try {
@@ -116,7 +114,6 @@ export default function Login(props) {
 
     useEffect(() => {
         if (!isInitialRender.current) {
-            console.log("Here's user: " + JSON.stringify(user));
             setErrMessage('');
             navigate(from, { replace: true });
         } else {
