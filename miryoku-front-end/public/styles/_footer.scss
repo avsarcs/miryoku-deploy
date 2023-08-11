@@ -1,0 +1,21 @@
+@import "./variables";
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    border: 2px solid black;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+    width: 100%;
+    background-color: #fcdab0;
+}
+
+.normal-link {
+    all: unset;
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
